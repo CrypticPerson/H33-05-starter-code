@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,29 +13,65 @@
 
     <title>Deserts</title>
 </head>
+
 <body>
-<div class="main"> 
-    <h1 class="title-text">Deserts</h1>
-    <div w3-include-html="text.txt"></div>
-    <div class="container">
-        <div class="category" id="category1">
-            <p>Icecream</p>
-            <p><input type="submit" value="Vanilla" id="vanilla"></p>
-            <p><input type="submit" value="Chocolate" id="chocolate"></p>
-            <p><input type="submit" value="Strawberry" id="strawberry"></p>
+    <div class="main">
+        <h1 class="title-text">Deserts</h1>
+        <div w3-include-html="text.txt"></div>
+        <div class="container">
+            <div class="category" id="category1">
+                <p>Icecream</p>
+                <p><input class="1" type="submit" value="Vanilla" id="vanilla"></p>
+                <p><input class="1" type="submit" value="Chocolate" id="chocolate"></p>
+                <p><input class="1" type="submit" value="Strawberry" id="strawberry"></p>
+            </div>
+
+            <div class="category" id="category2">
+                <p>Waffles</p>
+                <p><input class="2" type="submit" value="Pure" id="pure"></p>
+                <p><input class="2" type="submit" value="Sugar" id="sugar"></p>
+                <p><input class="2" type="submit" value="Syrup" id="syrup"></p>
+            </div>
+
+            <div class="category" id="category3">
+                <p>Other</p>
+                <p><input class="3" type="submit" value="Coffee" id="coffee"></p>
+                <p><input class="3" type="submit" value="Fruit" id="fruit"></p>
+                <p><input class="3" type="submit" value="Tea" id="tea"></p>
+            </div>
+
+
         </div>
+        <div class="content">
+            <iframe class="info" src="text.txt" width="80%" height="400px"></iframe>
+        </div>
+
 
 
     </div>
 
-
-
-</div>
-
     <script>
+       /* $("#vanilla").click(function () {
+            $(".info").attr("src", "category_01/${}/${}.txt");
+        });
+        $("#chocolate").click(function () {
+            $(".info").attr("src", "category_01/chocolate/chocolate.txt");
+        });
+        $("#strawberry").click(function () {
+            $(".info").attr("src", "category_01/strawberry/strawberry.txt");
+        });
+*/
+        function getdata(event) {
+            var clicked = event.currentTarget;
+            var id = $(clicked).attr("id");
+            var class1 = $(clicked).attr("class");
+            $(".info").attr("src", "category_0" + class1 + "/" + id + "/" + id + ".txt")
+            
+          }
+          $('input').click(getdata);
 
 
-        
     </script>
 </body>
+
 </html>
